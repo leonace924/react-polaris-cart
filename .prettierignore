@@ -12,8 +12,4 @@ dist/
 **/*.ico
 .yarn
 package-lock.json
-.next/
-next.config.js
-postcss.config.js
-tailwind.config.js
 .eslint.json
