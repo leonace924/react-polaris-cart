@@ -3,13 +3,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Setup Guide
 
 - Clone the repo on your local:
-  `https://github.com/leonace924/react-polaris-cart.git`
+  `git clone https://github.com/leonace924/react-polaris-cart.git`
 
-- Go to the resulting folder and install all dependencies:
-
-`cd react-polaris-cart && yarn`
+- Go to the resulting folder and install all dependencies: `cd react-polaris-cart && yarn`
 
 - Create a file named `.env.local`, copy data from `.env.example` and update the API URL
+
+- Start the local build script: `yarn develop`
 
 ## Available Scripts
 
