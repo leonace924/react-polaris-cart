@@ -11,6 +11,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - Start the local build script: `yarn develop`
 
+## Used Tech Stacks
+
+- React
+- Redux, Redux-Toolkit
+- Axios
+- Shopify Polaris
+
 ## Available Scripts
 
 In the project directory, you can run:
