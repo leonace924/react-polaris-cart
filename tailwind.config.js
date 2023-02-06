@@ -8,7 +8,6 @@ module.exports = {
     borderColor: (theme) => ({
       ...theme("colors"),
     }),
-
     extend: {
       colors: {
         red: "#ff0000",
