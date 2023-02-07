@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import {
   Avatar,
+  Button,
   Card,
   ChoiceList,
   ResourceItem,
@@ -9,6 +10,7 @@ import {
   Spinner,
   ResourceList,
   Text,
+  Stack,
 } from '@shopify/polaris'
 import { useAxios } from 'hooks'
 import { disambiguateLabel, isEmpty } from 'helpers'
@@ -118,23 +120,24 @@ export const ProductList = () => {
         media={media}
         accessibilityLabel={`View details for ${title}`}
       >
-        <Inline>
+        <Stack vertical>
           <Text variant="bodyLg" fontWeight="bold" as="h3">
             {title}
           </Text>
-          <div>
-            <Text variant="bodyMd" as="p">
-              {description}
-            </Text>
-          </div>
-
-          <Text variant="bodyLg" fontWeight="bold" as="p">
-            ${price}
-          </Text>
           <Text variant="bodyMd" as="p">
-            Rating {rating.rate}
+            {description}
           </Text>
-        </Inline>
+
+          <Inline>
+            <Text variant="bodyLg" fontWeight="bold" as="p">
+              ${price}
+            </Text>
+            <Text variant="bodyMd" as="p">
+              Rating {rating.rate}
+            </Text>
+            <Button primary>Add to Cart</Button>
+          </Inline>
+        </Stack>
       </ResourceItem>
     )
   }
