@@ -8,6 +8,8 @@ export const useAxios = ({ method, url = '', config = null }) => {
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true)
+
       try {
         const { data: response } = await axiosApi[method](
           url,
@@ -16,9 +18,9 @@ export const useAxios = ({ method, url = '', config = null }) => {
         setData(response)
       } catch (err) {
         setError(err)
+      } finally {
+        setLoading(false)
       }
-
-      setLoading(false)
     }
 
     fetchData()
