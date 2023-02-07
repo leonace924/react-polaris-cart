@@ -7,7 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - Go to the resulting folder and install all dependencies: `cd react-polaris-cart && yarn`
 
-- Create a file named `.env.local`, copy data from `.env.example` and update the API URL
+- Create a file named `.env.local`, copy data from `.env.example` and update the API URL in that file
 
 - Start the local build script: `yarn develop`
 
@@ -16,7 +16,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - React
 - Redux, Redux-Toolkit
 - Axios
-- Shopify Polaris
+- [Shopify Polaris](https://polaris.shopify.com/components).
 
 ## Available Scripts
 

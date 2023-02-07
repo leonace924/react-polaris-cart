@@ -1,5 +1,5 @@
 import React from 'react'
-import { Loading } from 'components/Common'
+import { Frame, Loading } from '@shopify/polaris'
 import { AppRoutes } from 'routes'
 import { AppProvider } from '@shopify/polaris'
 import enTranslations from '@shopify/polaris/locales/en.json'
@@ -8,11 +8,17 @@ import 'styles/index.css'
 
 function App() {
   return (
-    <React.Suspense fallback={<Loading />}>
-      <AppProvider i18n={enTranslations}>
+    <AppProvider i18n={enTranslations}>
+      <React.Suspense
+        fallback={
+          <Frame>
+            <Loading />
+          </Frame>
+        }
+      >
         <AppRoutes />
-      </AppProvider>
-    </React.Suspense>
+      </React.Suspense>
+    </AppProvider>
   )
 }
 
