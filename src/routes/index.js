@@ -9,7 +9,6 @@ export const AppRoutes = () => {
     <Routes>
       <Route path="/" exact element={<PLPPage />} />
       <Route path="/cart" exact element={<CartPage />} />
-      {/* <Route path="/login" /> */}
     </Routes>
   )
 }
