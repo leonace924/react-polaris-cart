@@ -1,11 +1,11 @@
-import { Page } from '@shopify/polaris'
+import { Layout } from 'components/App'
 import { ProductList } from 'modules/PLP'
 
 const PLPPage = () => {
   return (
-    <Page>
+    <Layout title="Products List">
       <ProductList />
-    </Page>
+    </Layout>
   )
 }
 

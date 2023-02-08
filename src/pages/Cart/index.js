@@ -1,8 +1,10 @@
+import { Layout } from 'components/App'
+
 const CartPage = () => {
   return (
-    <div className=" text-rose-800">
+    <Layout title="Cart" breadcrumbs={[{ content: 'Products', url: '/' }]}>
       <div>Cart Page</div>
-    </div>
+    </Layout>
   )
 }
 
