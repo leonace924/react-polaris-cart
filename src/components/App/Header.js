@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { TopBar, Icon, Button, Text, Badge, Inline } from '@shopify/polaris'
+import { Badge, Button, Icon, Inline, TopBar, Text } from '@shopify/polaris'
 import { CartMajor } from '@shopify/polaris-icons'
 
 export const Header = () => {
@@ -16,9 +16,8 @@ export const Header = () => {
         >
           <Inline wrap={false} gap={0} align="start">
             <Icon source={CartMajor} />
-            <Badge status="success">2</Badge>
+            {!!cart.length && <Badge status="success">{cart.length}</Badge>}
           </Inline>
-          {!!cart.length && <Badge status="success">{cart.length}</Badge>}
           <Text variant="bodySm" as="span" visuallyHidden>
             Secondary menu
           </Text>
