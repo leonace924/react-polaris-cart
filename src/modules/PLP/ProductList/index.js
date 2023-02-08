@@ -1,17 +1,15 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import {
   Avatar,
-  Button,
   Card,
   ChoiceList,
   ResourceItem,
-  Inline,
   Filters,
   Spinner,
   ResourceList,
   Text,
-  Stack,
 } from '@shopify/polaris'
+import { Product } from 'components/Common'
 import { useAxios } from 'hooks'
 import { disambiguateLabel, isEmpty } from 'helpers'
 import { SORT_OPTIONS } from 'utils/constant'
@@ -100,14 +98,8 @@ export const ProductList = () => {
     )
   }, [queryValue, data])
 
-  const renderItem = ({
-    id,
-    title,
-    price,
-    description,
-    image: imageUrl,
-    rating,
-  }) => {
+  const renderItem = (item) => {
+    const { id, title, image: imageUrl } = item
     const media = (
       <Avatar customer size="medium" name={title} source={imageUrl} />
     )
@@ -116,28 +108,10 @@ export const ProductList = () => {
       <ResourceItem
         id={id}
         key={id}
-        // url={url}
         media={media}
         accessibilityLabel={`View details for ${title}`}
       >
-        <Stack vertical>
-          <Text variant="bodyLg" fontWeight="bold" as="h3">
-            {title}
-          </Text>
-          <Text variant="bodyMd" as="p">
-            {description}
-          </Text>
-
-          <Inline>
-            <Text variant="bodyLg" fontWeight="bold" as="p">
-              ${price}
-            </Text>
-            <Text variant="bodyMd" as="p">
-              Rating {rating.rate}
-            </Text>
-            <Button primary>Add to Cart</Button>
-          </Inline>
-        </Stack>
+        <Product product={item} />
       </ResourceItem>
     )
   }
