@@ -16,7 +16,9 @@ export const Header = () => {
         >
           <Inline wrap={false} gap={0} align="start">
             <Icon source={CartMajor} />
-            {!!cart.length && <Badge status="success">{cart.length}</Badge>}
+            {!!cart.totalCount > 0 && (
+              <Badge status="success">{cart.totalCount}</Badge>
+            )}
           </Inline>
           <Text variant="bodySm" as="span" visuallyHidden>
             Secondary menu
