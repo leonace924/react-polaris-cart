@@ -1,6 +1,13 @@
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { AlphaStack, Box, Card, Inline, Text } from '@shopify/polaris'
+import {
+  AlphaStack,
+  Box,
+  Card,
+  EmptyState,
+  Inline,
+  Text,
+} from '@shopify/polaris'
 import { CartItem } from 'components/Common/CartItem'
 
 export const CartReview = () => {
@@ -8,15 +15,29 @@ export const CartReview = () => {
   const { cart } = useSelector((state) => state)
 
   useEffect(() => {
-    setTotalAmount(cart.reduce((acc, curr) => acc + curr.price, 0))
+    setTotalAmount(cart.cartItems.reduce((acc, curr) => acc + curr.price, 0))
   }, [cart])
+
+  if (cart.totalCount === 0) {
+    return (
+      <Card>
+        <EmptyState
+          heading="Your cart is empty"
+          action={{ content: 'Add products', url: '/' }}
+          image="https://cdn.shopify.com/s/files/1/0262/4071/2726/files/emptystate-files.png"
+        >
+          <p>Looks like you have not added anything to your cart.</p>
+        </EmptyState>
+      </Card>
+    )
+  }
 
   return (
     <Card>
       <Box padding="4" borderBlockEnd="dark">
         <AlphaStack>
-          {cart.map((item) => (
-            <CartItem {...item} key={`cart-${item?.id}`} />
+          {cart.cartItems?.map((item) => (
+            <CartItem item={item} key={`cart-${item?.id}`} />
           ))}
         </AlphaStack>
       </Box>
