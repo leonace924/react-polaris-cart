@@ -1,6 +1,16 @@
-import { Avatar, Box, Inline, Text } from '@shopify/polaris'
+import { useCallback } from 'react'
+import { useDispatch } from 'react-redux'
+import { Avatar, Box, Button, Inline, Text } from '@shopify/polaris'
+import { remove } from 'store/Slices/cartSlice'
 
-export const CartItem = ({ id, title, price, image: imageUrl }) => {
+export const CartItem = ({ item }) => {
+  const { title, price, image: imageUrl } = item
+  const dispatch = useDispatch()
+
+  const handleRemoveItem = useCallback(() => {
+    dispatch(remove(item))
+  }, [dispatch, item])
+
   const media = <Avatar customer size="medium" name={title} source={imageUrl} />
 
   return (
@@ -12,9 +22,14 @@ export const CartItem = ({ id, title, price, image: imageUrl }) => {
             <Text variant="bodyLg" fontWeight="medium" as="h3">
               {title}
             </Text>
-            <Text variant="bodyLg" fontWeight="medium" as="p">
-              ${price}
-            </Text>
+            <Inline>
+              <Text variant="bodyLg" fontWeight="medium" as="p">
+                ${price}
+              </Text>
+              <Button plain monochrome onClick={handleRemoveItem}>
+                Remove
+              </Button>
+            </Inline>
           </Inline>
         </Box>
       </Inline>
