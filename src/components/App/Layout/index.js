@@ -1,7 +1,7 @@
 import { Frame, Page } from '@shopify/polaris'
 import { Header } from 'components/App'
 
-export const Layout = ({ title, children }) => {
+export const Layout = ({ title, breadcrumbs = [], children }) => {
   const logo = {
     width: 124,
     topBarSource:
@@ -12,7 +12,9 @@ export const Layout = ({ title, children }) => {
 
   return (
     <Frame topBar={<Header />} logo={logo}>
-      <Page title={title}>{children}</Page>
+      <Page title={title} breadcrumbs={breadcrumbs}>
+        {children}
+      </Page>
     </Frame>
   )
 }
