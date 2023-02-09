@@ -1,6 +1,11 @@
+## PLP and Cart page using Shopify Polaris components
+
+- PLP page including sort (ASC/DESC) and filter by categories
+- Cart Page with cart items and total price, also empty state
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Setup Guide
+### Setup Guide
 
 - Clone the repo on your local:
   `git clone https://github.com/leonace924/react-polaris-cart.git`
@@ -11,12 +16,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - Start the local build script: `yarn develop`
 
-## Used Tech Stacks
+### Used Tech Stacks
 
 - React
-- Redux, Redux-Toolkit
+- Redux, Redux-Toolkit, [Redux-Persist](https://www.npmjs.com/package/redux-persist)
 - Axios
-- [Shopify Polaris](https://polaris.shopify.com/components).
+- [Shopify Polaris](https://polaris.shopify.com/components)
+- React Testing Library (added in two files - store/slice/cartSlice.test.js, components/Common/CartItem/CartItem.test.js)
 
 ## Available Scripts
 
@@ -42,18 +48,6 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
 ## Learn More
 
