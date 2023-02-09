@@ -23,7 +23,7 @@ export const CartReview = () => {
     )
   }, [cart])
 
-  if (cart.totalCount === 0) {
+  if (!cart.totalCount) {
     return (
       <Card>
         <EmptyState

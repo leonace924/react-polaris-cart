@@ -21,11 +21,14 @@ const cartSlice = createSlice({
       state.totalCount++
     },
     remove: (state, action) => {
-      const itemInCart = state.cartItems.find(
+      const index = state.cartItems.findIndex(
         (item) => item.id === action.payload.id,
       )
-      state.totalCount -= itemInCart.quantity
-      return state.cartItems.filter((item) => item.id !== action.payload)
+      state.cartItems.splice(index, 1)
+      state.totalCount = state.cartItems.reduce(
+        (acc, cur) => acc + cur.quantity,
+        0,
+      )
     },
   },
 })
