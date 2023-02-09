@@ -15,7 +15,12 @@ export const CartReview = () => {
   const { cart } = useSelector((state) => state)
 
   useEffect(() => {
-    setTotalAmount(cart.cartItems.reduce((acc, curr) => acc + curr.price, 0))
+    setTotalAmount(
+      cart.cartItems.reduce(
+        (acc, curr) => acc + curr.price * (curr.quantity ?? 1),
+        0,
+      ),
+    )
   }, [cart])
 
   if (cart.totalCount === 0) {

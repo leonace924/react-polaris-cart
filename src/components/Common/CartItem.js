@@ -4,7 +4,7 @@ import { Avatar, Box, Button, Inline, Text } from '@shopify/polaris'
 import { remove } from 'store/Slices/cartSlice'
 
 export const CartItem = ({ item }) => {
-  const { title, price, image: imageUrl } = item
+  const { title, price, image: imageUrl, quantity } = item
   const dispatch = useDispatch()
 
   const handleRemoveItem = useCallback(() => {
@@ -19,17 +19,32 @@ export const CartItem = ({ item }) => {
         {media}
         <Box style={{ flex: 1 }}>
           <Inline blockAlign="center" align="space-between">
-            <Text variant="bodyLg" fontWeight="medium" as="h3">
-              {title}
-            </Text>
-            <Inline>
+            <Box>
+              <Box paddingBlockEnd="1">
+                <Text variant="bodyLg" fontWeight="medium" as="h3">
+                  {title}
+                </Text>
+              </Box>
+
               <Text variant="bodyLg" fontWeight="medium" as="p">
                 ${price}
               </Text>
-              <Button plain monochrome onClick={handleRemoveItem}>
+              <Button plain destructive onClick={handleRemoveItem}>
                 Remove
               </Button>
-            </Inline>
+            </Box>
+
+            <Box width={'25%'}>
+              <Inline align="space-between">
+                <Text variant="bodyLg" fontWeight="medium" as="p">
+                  {quantity}
+                </Text>
+
+                <Text variant="bodyLg" fontWeight="medium" as="p">
+                  ${price * quantity}
+                </Text>
+              </Inline>
+            </Box>
           </Inline>
         </Box>
       </Inline>
