@@ -8,7 +8,7 @@ import {
   Inline,
   Text,
 } from '@shopify/polaris'
-import { CartItem } from 'components/Common/CartItem'
+import { CartItem } from 'components/Common'
 
 export const CartReview = () => {
   const [totalAmount, setTotalAmount] = useState(0)

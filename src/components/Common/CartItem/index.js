@@ -41,7 +41,7 @@ export const CartItem = ({ item }) => {
                 </Text>
 
                 <Text variant="bodyLg" fontWeight="medium" as="p">
-                  ${price * quantity}
+                  {`$${price * quantity}`}
                 </Text>
               </Inline>
             </Box>
