@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, screen, cleanup } from 'utils/test-utils'
+import { render, screen, cleanup } from 'helpers/test-utils'
 import { CartItem } from 'components/Common'
 
 import '@testing-library/jest-dom'
