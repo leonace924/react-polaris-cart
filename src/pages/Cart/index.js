@@ -3,7 +3,7 @@ import { CartReview } from 'modules/Cart'
 
 const CartPage = () => {
   return (
-    <Layout title="Cart" breadcrumbs={[{ content: 'Products', url: '/' }]}>
+    <Layout title="Your Cart" breadcrumbs={[{ content: 'Products', url: '/' }]}>
       <CartReview />
     </Layout>
   )
